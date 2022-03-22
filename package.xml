@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+    <name>norlab_icp_mapper</name>
+    <version>0.0.0</version>
+    <description>
+        A 2-D/3-D mapping library relying on the "Iterative Closest Point" algorithm.
+    </description>
+    <maintainer email="simon-pierre.deschenes.1@ulaval.ca">Simon-Pierre Deschenes</maintainer>
+    <license>new BSD</license>
+    <author>Simon-Pierre Deschenes</author>
+    <url type="repository">https://github.com/norlab-ulaval/norlab_icp_mapper</url>
+    <buildtool_depend>cmake</buildtool_depend>
+    <export>
+        <build_type>cmake</build_type>
+    </export>
+</package>

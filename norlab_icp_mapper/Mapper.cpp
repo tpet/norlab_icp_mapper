@@ -59,9 +59,10 @@ void norlab_icp_mapper::Mapper::loadYamlConfig(const std::string& inputFiltersCo
 }
 
 void norlab_icp_mapper::Mapper::processInput(const PM::DataPoints& inputInSensorFrame, const PM::TransformationParameters& estimatedPose,
-											 const std::chrono::time_point<std::chrono::steady_clock>& timeStamp)
+											 const std::chrono::time_point<std::chrono::steady_clock>& timeStamp,
+											 PM::DataPoints& filteredInputInSensorFrame)
 {
-	PM::DataPoints filteredInputInSensorFrame = radiusFilter->filter(inputInSensorFrame);
+	filteredInputInSensorFrame = radiusFilter->filter(inputInSensorFrame);
 	inputFilters.apply(filteredInputInSensorFrame);
 	PM::DataPoints input = transformation->compute(filteredInputInSensorFrame, estimatedPose);
 

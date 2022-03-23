@@ -10,6 +10,11 @@ find_package(libpointmatcher CONFIG)
 set(EXTERNAL_INCLUDE_DIRS ${EXTERNAL_INCLUDE_DIRS} ${libpointmatcher_INCLUDE_DIRS})
 set(EXTERNAL_LIBS ${EXTERNAL_LIBS} ${libpointmatcher_LIBRARIES})
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(eigen REQUIRED eigen3)
+include_directories(${eigen_INCLUDE_DIRS})
+link_directories(${eigen_LIBRARY_DIRS})
+
 # norlab_icp_mapper target
 include_directories(norlab_icp_mapper ${libpointmatcher_INCLUDE_DIRS})
 add_library(norlab_icp_mapper norlab_icp_mapper/Mapper.cpp norlab_icp_mapper/Map.cpp norlab_icp_mapper/Trajectory.cpp norlab_icp_mapper/RAMCellManager.cpp norlab_icp_mapper/HardDriveCellManager.cpp)
